@@ -1,0 +1,37 @@
+
+//User function Template for Java
+// recursion used is correct, if I have to optimize it I can use other approach.
+// breaks for  some test cases though.
+//qn link given in comments
+/*
+https://practice.geeksforgeeks.org/problems/maximum-number-of-22-squares/1
+*/
+
+class Solution                  
+{
+    public static long  find(long base, long cnt)
+    {
+        if(base <= 2 )
+        {
+            return cnt ;
+        }
+        
+        if(base % 2 == 0)
+        {
+          cnt =   find((base - 2), cnt + ((base - 2) / 2));
+        }
+        else if(base % 2 == 1)
+        {
+          cnt =   find(base -  2, cnt +( ( base - 3) / 2) );
+        }
+        
+        return cnt;
+    }
+    public static long numberOfSquares(long base)
+    {
+        //code here
+        long cnt = 0;
+        
+        return find(base, cnt);
+    }
+}
